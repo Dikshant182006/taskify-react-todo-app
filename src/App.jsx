@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/navbar";
 import { v4 as uuidv4 } from "uuid";
 
 export default function App() {
   const [todo, setTodo] = useState(""); // this is input
-  const [todos, setTodos] = useState([]); // this is data
+  // loading data
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  // saving data
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const handleEdit = (e) => {
     const id = e.target.name;
-
-    // let todo = todos.filter((item) => item.id === id);              
-    // setTodo(todo[0].todo);
-    const selectedText = todos.find(item => item.id === id);
-    setTodo(selectedText.todo)
-    const newTodos = todos.filter((item) => item.id !== id);        //Keep all todos whose id is not equal to clicked id.
+    const selectedText = todos.find((item) => item.id === id);
+    setTodo(selectedText.todo);
+    const newTodos = todos.filter((item) => item.id !== id); //Keep all todos whose id is not equal to clicked id.
     setTodos(newTodos);
   };
 
@@ -27,12 +33,11 @@ export default function App() {
   };
 
   const handleAdd = () => {
-    if(todo.trim() === "") return;
+    // if (todo.trim() === "") return;
 
     const newTodos = [...todos, { id: uuidv4(), todo, isCompleted: false }]; //it makes new array and by spread operator it takes all old todos
     setTodos(newTodos);
     setTodo("");
-    console.log(newTodos);
   };
 
   const handleChange = (e) => {
@@ -66,8 +71,9 @@ export default function App() {
             className="flex-1 rounded-lg px-4 py-2 outline-none bg-white"
           />
           <button
-            onClick={handleAdd}
-            className="bg-purple-700 text-white font-semibold px-5 py-2 rounded-lg hover:bg-purple-800 transition"
+            onClick={handleAdd} disabled={todo.length <= 3}
+            className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:bg-green
+            -800 transition"
           >
             Save
           </button>
@@ -77,7 +83,9 @@ export default function App() {
 
         <div className="todos">
           {todos.length === 0 && (
-            <div className="font-bold m-4">No Todos to display</div>
+            <div className="font-bold m-4">
+              No todos available. Add your first task.
+            </div>
           )}
           {todos.map((item) => {
             return (
@@ -90,7 +98,7 @@ export default function App() {
                     name={item.id}
                     onChange={handleCheckbox}
                     type="checkbox"
-                    value={item.isCompleted}
+                    checked={item.isCompleted}
                   />
                   <div className={item.isCompleted ? "line-through" : ""}>
                     {item.todo}
