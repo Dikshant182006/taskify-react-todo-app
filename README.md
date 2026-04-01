@@ -1,25 +1,41 @@
-# 📝 Taskify - React Todo App
+# ✅ Taskify - React Todo App
 
-Taskify is a simple and responsive Todo App built with React and Tailwind CSS.  
-It helps users manage their daily tasks in a clean and organized way.
+A clean and responsive Todo application built using React, designed to help users manage their daily tasks efficiently.
 
 ## 🚀 Features
 
-- Clean and modern UI
-- Responsive layout
-- Add Todo section
-- Todo list section
-- Built with reusable React components
-- Styled using Tailwind CSS
+* Add, edit, and delete tasks
+* Mark tasks as completed
+* Real-time UI updates
+* Clean and user-friendly interface
+* Persistent data using local storage
 
 ## 🛠️ Tech Stack
 
-- React
-- JavaScript
-- Tailwind CSS
-- Vite
+* React.js
+* JavaScript (ES6+)
+* HTML
+* CSS
 
-## 📂 Project Status
+## 📚 What I Learned
 
-This project is currently in progress.  
-The UI has been completed, and functionality will be added next.
+* React fundamentals (components, state, props)
+* Handling events and dynamic rendering
+* Managing application state
+* Working with localStorage for data persistence
+* Improving UI/UX design
+
+## 🎯 Future Improvements
+
+* Add filter (completed / pending tasks)
+* Add due dates and reminders
+* Improve animations and transitions
+* Dark mode support
+
+## 📸 Preview
+
+<img src="img/UI.png" alt="UI image">
+
+## 🌐 Live Demo
+
+https://react-todo-dikshant.netlify.app/
