@@ -58,8 +58,9 @@ export default function App() {
 
   return (
     <>
+    <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950 h-screen">
       <Navbar />
-      <div className="w-[90vw] mx-auto mt-8 rounded-2xl bg-purple-300 p-8 min-h-[50vh]">
+      <div className="w-[90vw] mx-auto mt-8 rounded-2xl bg-slate-800 shadow-xl p-8 min-h-[50vh] text-[#e2e8f0]">
         <h2 className="text-3xl font-bold mb-4">Add a Todo</h2>
 
         <div className="flex items-center gap-3 mt-3">
@@ -68,12 +69,11 @@ export default function App() {
             value={todo}
             type="text"
             placeholder="Enter your task"
-            className="flex-1 rounded-lg px-4 py-2 outline-none bg-white"
+            className="bg-slate-800 text-white placeholder-gray-400 px-4 py-3 rounded-lg outline-none focus:ring-2 focus:ring-purple-500"
           />
           <button
             onClick={handleAdd} disabled={todo.length <= 3}
-            className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:bg-green
-            -800 transition"
+            className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer"
           >
             Save
           </button>
@@ -94,11 +94,12 @@ export default function App() {
                 className="todo flex w-1/2 justify-between mt-5 items-center"
               >
                 <div className="flex gap-4">
-                  <input
+                  <input 
                     name={item.id}
                     onChange={handleCheckbox}
                     type="checkbox"
                     checked={item.isCompleted}
+                    className="accent-black cursor-pointer"
                   />
                   <div className={item.isCompleted ? "line-through" : ""}>
                     {item.todo}
@@ -108,14 +109,14 @@ export default function App() {
                   <button
                     name={item.id}
                     onClick={handleEdit}
-                    className="bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-800 transition"
+                    className="bg-purple-700 ml-5 px-4 py-2 rounded-lg font-semibold hover:bg-purple-800 transition cursor-pointer"
                   >
                     Edit
                   </button>
                   <button
                     onClick={handleDelete}
                     name={item.id}
-                    className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition"
+                    className="bg-[#dc2626] px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition-all duration-300 ease-in-out cursor-pointer"
                   >
                     Delete
                   </button>
@@ -124,6 +125,7 @@ export default function App() {
             );
           })}
         </div>
+      </div>
       </div>
     </>
   );
