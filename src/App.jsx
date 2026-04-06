@@ -56,6 +56,12 @@ export default function App() {
     setTodos(newTodos);
   };
 
+  const handleEnter = (e) => {
+    if(e.key === "Enter") {
+      handleAdd();
+    }
+  }
+
   return (
     <>
     <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950 h-screen">
@@ -66,6 +72,7 @@ export default function App() {
         <div className="flex items-center gap-3 mt-3">
           <input
             onChange={handleChange}
+            onKeyDown={handleEnter}
             value={todo}
             type="text"
             placeholder="Enter your task"
