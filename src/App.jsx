@@ -56,6 +56,12 @@ export default function App() {
     setTodos(newTodos);
   };
 
+  const handleClear = (e) => {
+    if(confirm("Are you sure you want to delete all todos?")) {
+      setTodos([]);
+    }
+  }
+
   const handleEnter = (e) => {
     if(e.key === "Enter") {
       handleAdd();
@@ -84,13 +90,15 @@ export default function App() {
           >
             Save
           </button>
+          <button onClick={handleClear} disabled={todos.length <= 1}
+          className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer">Clear All</button>
         </div>
 
         <h2 className="text-3xl font-bold mt-10 mb-4">Your Todos</h2>
 
         <div className="todos">
           {todos.length === 0 && (
-            <div className="font-bold m-4">
+            <div className="font-bold my-4">
               No todos available. Add your first task.
             </div>
           )}
