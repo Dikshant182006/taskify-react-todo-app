@@ -75,7 +75,7 @@ export default function App() {
       <div className="w-[90vw] mx-auto mt-8 rounded-2xl bg-slate-800 shadow-xl p-8 min-h-[50vh] text-[#e2e8f0]">
         <h2 className="text-3xl font-bold mb-4">Add a Todo</h2>
 
-        <div className="flex items-center gap-3 mt-3">
+        <div className="flex flex-col w-1/3 gap-3 mt-3">
           <input
             onChange={handleChange}
             onKeyDown={handleEnter}
@@ -84,14 +84,16 @@ export default function App() {
             placeholder="Enter your task"
             className="bg-slate-800 text-white placeholder-gray-400 px-4 py-3 rounded-lg outline-none focus:ring-2 focus:ring-purple-500"
           />
+          <div className="flex gap-5">
           <button
             onClick={handleAdd} disabled={todo.length <= 3}
             className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer"
           >
             Save
           </button>
-          <button onClick={handleClear} disabled={todos.length <= 1}
-          className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer">Clear All</button>
+          <button onClick={handleClear} disabled={todos.length <= 0}
+          className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer ">Clear All</button>
+        </div>
         </div>
 
         <h2 className="text-3xl font-bold mt-10 mb-4">Your Todos</h2>
