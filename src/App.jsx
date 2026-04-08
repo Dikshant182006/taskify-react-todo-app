@@ -79,7 +79,7 @@ export default function App() {
         <h2 className="text-3xl font-bold mb-4">Add a Todo</h2>
 
         <div className="flex flex-col w-1/3 gap-3 mt-3">
-        <div className="flex gap-10">
+        <div className="flex gap-3">
           <input
             onChange={handleChange}
             onKeyDown={handleEnter}
