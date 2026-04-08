@@ -10,6 +10,8 @@ export default function App() {
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
 
+  const count = todos.length;
+
   // saving data
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -33,7 +35,7 @@ export default function App() {
   };
 
   const handleAdd = () => {
-    // if (todo.trim() === "") return;
+    if (todo.trim() === "") return;
 
     const newTodos = [...todos, { id: uuidv4(), todo, isCompleted: false }]; //it makes new array and by spread operator it takes all old todos
     setTodos(newTodos);
@@ -59,6 +61,7 @@ export default function App() {
   const handleClear = (e) => {
     if(confirm("Are you sure you want to delete all todos?")) {
       setTodos([]);
+      setTodo("");
     }
   }
 
@@ -76,6 +79,7 @@ export default function App() {
         <h2 className="text-3xl font-bold mb-4">Add a Todo</h2>
 
         <div className="flex flex-col w-1/3 gap-3 mt-3">
+        <div className="flex gap-10">
           <input
             onChange={handleChange}
             onKeyDown={handleEnter}
@@ -84,9 +88,11 @@ export default function App() {
             placeholder="Enter your task"
             className="bg-slate-800 text-white placeholder-gray-400 px-4 py-3 rounded-lg outline-none focus:ring-2 focus:ring-purple-500"
           />
+          <p className="bg-gradient-to-r from-sky-400 to-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer flex gap-2 items-center">Count<span>{count}</span></p>
+          </div>
           <div className="flex gap-5">
           <button
-            onClick={handleAdd} disabled={todo.length <= 3}
+            onClick={handleAdd} disabled={todo.trim().length <= 3}
             className="bg-green-700 disabled:bg-red-500 text-white font-semibold px-5 py-2 rounded-lg hover:cursor-pointer"
           >
             Save
