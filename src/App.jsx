@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Navbar from "./components/navbar.jsx";
 
 export default function App() {
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
+
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const count = todos.length;
 
