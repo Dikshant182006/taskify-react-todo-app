@@ -81,9 +81,9 @@ export default function App() {
     <>
       <Navbar />
 
-      <div className="min-h-[86vh] bg-slate-900 text-white px-3 py-6 sm:px-6">
+      <div className="min-h-[86vh] bg-slate-900 text-white px-3 py-6 sm:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 shadow-2xl rounded-2xl p-4 sm:p-6 md:p-8">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl shadow-purple -900/20 mb-5">
             
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
               <div>
@@ -114,7 +114,7 @@ export default function App() {
 
                 <button
                   onClick={handleAdd}
-                  className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition font-semibold shadow-lg shadow-purple-900/30"
+                  className="px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition font-semibold shadow-lg shadow-purple-900/30 cursor-pointer"
                 >
                   Save Task
                 </button>
@@ -123,7 +123,7 @@ export default function App() {
               <div className="mt-4">
                 <button
                   onClick={handleClearAll}
-                  className="w-full sm:w-auto px-4 py-2 rounded-xl border border-slate-500 hover:bg-white/10 transition font-medium"
+                  className="w-full sm:w-auto px-4 py-2 rounded-xl border border-slate-500 hover:bg-white/10 transition font-medium cursor-pointer"
                 >
                   Clear All
                 </button>
@@ -136,7 +136,7 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full md:w-auto">
                 <button
                   onClick={() => setFilter("all")}
-                  className={`px-4 py-2 rounded-xl font-medium transition border ${
+                  className={`px-4 py-2 rounded-xl font-medium transition border cursor-pointer ${
                     filter === "all"
                       ? "bg-purple-600 border-purple-600 text-white"
                       : "border-slate-500 hover:bg-white/10"
@@ -147,7 +147,7 @@ export default function App() {
 
                 <button
                   onClick={() => setFilter("active")}
-                  className={`px-4 py-2 rounded-xl font-medium transition border ${
+                  className={`px-4 py-2 rounded-xl font-medium transition border cursor-pointer ${
                     filter === "active"
                       ? "bg-amber-500 border-amber-500 text-black"
                       : "border-slate-500 hover:bg-white/10"
@@ -158,7 +158,7 @@ export default function App() {
 
                 <button
                   onClick={() => setFilter("done")}
-                  className={`px-4 py-2 rounded-xl font-medium transition border ${
+                  className={`px-4 py-2 rounded-xl font-medium transition border cursor-pointer ${
                     filter === "done"
                       ? "bg-green-600 border-green-600 text-white"
                       : "border-slate-500 hover:bg-white/10"
@@ -193,7 +193,7 @@ export default function App() {
 
                       <div className="flex-1">
                         <p
-                          className={`ntext-sm sm:text-base ${
+                          className={`text-sm sm:text-base ${
                             item.isCompleted
                               ? "line-through text-slate-400"
                               : "text-white"
@@ -208,11 +208,11 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+                    <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto ">
                       <button
                         name={item.id}
                         onClick={handleEdit}
-                        className="px-4 py-2 rounded-xl border border-blue-400/40 text-blue-300 hover:bg-blue-500/10 transition font-medium w-full sm:w-auto"
+                        className="px-4 py-2 rounded-xl border border-blue-400/40 text-blue-300 hover:bg-blue-500/10 transition font-medium w-full sm:w-auto cursor-pointer"
                       >
                         Edit
                       </button>
@@ -220,7 +220,7 @@ export default function App() {
                       <button
                         name={item.id}
                         onClick={handleDelete}
-                        className="px-4 py-2 rounded-xl border border-red-400/40 text-red-300 hover:bg-red-500/10 transition font-medium w-full sm:w-auto"
+                        className="px-4 py-2 rounded-xl border border-red-400/40 text-red-300 hover:bg-red-500/10 transition font-medium w-full sm:w-auto cursor-pointer"
                       >
                         Delete
                       </button>
