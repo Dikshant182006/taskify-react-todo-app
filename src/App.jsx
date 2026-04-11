@@ -83,7 +83,7 @@ export default function App() {
 
       <div className="min-h-[86vh] bg-slate-900 text-white px-3 py-6 sm:px-6 ">
         <div className="max-w-5xl mx-auto">
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl shadow-purple -900/20 mb-5">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl shadow-purple -900/20">
             
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
               <div>

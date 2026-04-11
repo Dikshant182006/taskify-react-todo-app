@@ -15,7 +15,7 @@ https://taskify-react-todo-app.vercel.app/
 - Desktop UI
 <img src="img/Desktop UI.png" alt="desktop preview" />
 
--Mobile UI
+- Mobile UI
 <img src="img/Mobile UI.png" alt="mobile preview" />
 
 ---
