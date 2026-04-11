@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#0f1117] h-[14vh] text-white flex justify-between p-6 w-full border-b border-b-slate-700">
+    <nav className="bg-[#0f1117] h-[14vh] text-white flex justify-between items-center p-6 w-full border-b border-b-slate-700  ">
       <span className="bg-linear-to-r from-white to-purple-600 bg-clip-text text-transparent text-3xl font-bold">
         Taskify
       </span>
